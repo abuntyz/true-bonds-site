@@ -1,290 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="True Bonds — a school project about friendship bracelets by Sanvika and Vedansha."
-    />
-    <title>True Bonds — Friendship Bracelets</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ True Bonds Jewelry ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose:      #e8896a;
+    --gold:      #d4a843;
+    --champagne: #f5e6c8;
+    --plum:      #4a1942;
+    --cream:     #fdf8f0;
+    --card:      #ffffff;
+    --text:      #2c1a1a;
+    --muted:     #8c6e6e;
+    --border:    #f0ddd0;
+    --mint:      #2eaa7a;
+  }
 
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#">True Bonds</a>
-        <button
-          type="button"
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          Menu
-        </button>
-        <nav class="nav" id="site-nav" aria-label="Page sections">
-          <a href="#useful">Useful</a>
-          <a href="#why-making">Our project</a>
-          <a href="#facts">Facts</a>
-          <a href="#costs">Costs</a>
-          <a href="#profit">Profit</a>
-          <a href="#examples">Examples</a>
-          <a href="#customization">Customize</a>
-          <a href="#why-us">Why us</a>
-          <a href="#qa">Q&amp;A</a>
-          <a href="#order">Order</a>
-        </nav>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    background: linear-gradient(90deg, #3a1230, #6b2255, #3a1230);
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 24px rgba(74,25,66,0.35);
+    position: sticky; top: 0; z-index: 999;
+    border-bottom: 2px solid rgba(212,168,67,0.4);
+  }
+  @keyframes shimmer { to { background-position: 200% center; } }
+
+  .logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: #f5e6c8;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+  }
+  .logo span { color: #d4a843; }
+
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a {
+    color: #f5e6c8;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { background: rgba(212,168,67,0.2); color: #d4a843; }
+
+  #cart-btn {
+    background: linear-gradient(135deg, #d4a843, #b8892a);
+    color: #2c1a1a;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 2px 10px rgba(212,168,67,0.4);
+  }
+  #cart-btn:hover { transform: scale(1.06); box-shadow: 0 6px 18px rgba(212,168,67,0.55); }
+  #cart-count {
+    background: var(--plum);
+    color: #f5e6c8;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #fdf8f0 0%, #fceee0 50%, #fdf2e9 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(212,168,67,0.18), transparent 68%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(232,137,106,0.18), transparent 68%);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: var(--plum);
+    text-shadow: 2px 3px 0 rgba(212,168,67,0.35);
+    line-height: 1.2;
+    position: relative; z-index: 1;
+    animation: pop 0.7s cubic-bezier(.36,1.6,.6,1) both;
+  }
+  @keyframes pop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .hero p {
+    font-size: 1.15rem;
+    color: #9e5e50;
+    font-weight: 700;
+    margin-top: 14px;
+    position: relative; z-index: 1;
+  }
+  .floating-gems {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    color: var(--plum);
+    margin: 40px 0 10px;
+    text-shadow: 1px 2px 0 rgba(212,168,67,0.3);
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  /* ===== PRODUCTS GRID ===== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .product-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(74,25,66,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 1.5px solid #f0ddd0;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(212,168,67,0.22);
+    border-color: #d4a843;
+  }
+
+  .product-emoji {
+    font-size: 5rem;
+    text-align: center;
+    padding: 28px 20px 10px;
+    background: linear-gradient(135deg, #fdf2e9, #fce8d8);
+    display: block;
+    line-height: 1;
+  }
+
+  .product-info { padding: 16px 18px 20px; }
+  .product-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+  .product-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .product-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #b8892a;
+    margin-bottom: 14px;
+  }
+  .product-price .old-price {
+    font-size: 0.85rem;
+    color: #c9b0a8;
+    text-decoration: line-through;
+    margin-right: 6px;
+    font-weight: 600;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    background: linear-gradient(135deg, #6b2255, #9e3a80);
+    color: #f5e6c8;
+    border: none;
+    padding: 10px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .add-to-cart:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(107,34,85,0.4);
+  }
+  .add-to-cart:active { transform: scale(0.97); }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4a843, #b8892a);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== BANNER ===== */
+  .banner {
+    background: linear-gradient(135deg, #6b2255, #9e3a80);
+    text-align: center;
+    padding: 16px;
+    font-weight: 800;
+    color: #f5e6c8;
+    font-size: 1.02rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  .banner span { margin: 0 10px; }
+
+  /* ===== CART SIDEBAR ===== */
+  .cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(74,25,66,0.4);
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+  }
+  .cart-overlay.open { display: block; }
+
+  .cart-sidebar {
+    position: fixed;
+    right: -420px;
+    top: 0; bottom: 0;
+    width: 380px;
+    background: #fdf8f0;
+    z-index: 1001;
+    box-shadow: -8px 0 40px rgba(74,25,66,0.2);
+    transition: right 0.35s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px 0 0 24px;
+    overflow: hidden;
+  }
+  .cart-sidebar.open { right: 0; }
+
+  .cart-header {
+    background: linear-gradient(90deg, #3a1230, #6b2255);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(212,168,67,0.4);
+  }
+  .cart-header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #f5e6c8;
+    font-size: 1.5rem;
+  }
+  #close-cart {
+    background: rgba(245,230,200,0.2);
+    border: none;
+    color: #f5e6c8;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  #close-cart:hover { background: rgba(245,230,200,0.4); }
+
+  .cart-items { flex: 1; overflow-y: auto; padding: 16px; }
+
+  .cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .cart-empty .big { font-size: 3rem; }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    border: 1.5px solid #f0ddd0;
+    animation: fadeUp 0.3s ease;
+    box-shadow: 0 2px 8px rgba(74,25,66,0.06);
+  }
+  .cart-item-emoji { font-size: 2.2rem; }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-weight: 800; font-size: 0.95rem; color: var(--plum); }
+  .cart-item-price { color: #b8892a; font-weight: 700; font-size: 0.9rem; }
+  .cart-qty-controls { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+  .qty-btn {
+    background: linear-gradient(135deg, #6b2255, #9e3a80);
+    border: none;
+    color: #f5e6c8;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    transition: transform 0.15s;
+    line-height: 1;
+  }
+  .qty-btn:hover { transform: scale(1.15); }
+  .qty-num { font-weight: 800; font-size: 1rem; color: var(--plum); min-width: 20px; text-align: center; }
+  .remove-item {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #c9745a;
+    transition: transform 0.2s;
+  }
+  .remove-item:hover { transform: scale(1.3); }
+
+  .cart-footer {
+    padding: 20px;
+    border-top: 2px dashed #f0ddd0;
+    background: #fff;
+  }
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .cart-total span { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+  .cart-total .total-price { font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #b8892a; }
+
+  #checkout-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #6b2255, #9e3a80);
+    color: #f5e6c8;
+    border: none;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+  }
+  #checkout-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(107,34,85,0.4);
+  }
+
+  /* ===== PAYMENT MODAL ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(58,18,48,0.65);
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: #fdf8f0;
+    border-radius: 28px;
+    padding: 36px 32px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(74,25,66,0.3);
+    animation: popIn 0.4s cubic-bezier(.36,1.6,.6,1);
+    position: relative;
+    border: 1.5px solid #f0ddd0;
+  }
+  @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  .modal-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.7rem;
+    color: var(--plum);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .modal-subtitle { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; font-weight: 600; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-weight: 700; font-size: 0.9rem; color: var(--plum); margin-bottom: 6px; }
+  .form-group input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #f0ddd0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  .form-group input:focus {
+    border-color: #d4a843;
+    box-shadow: 0 0 0 3px rgba(212,168,67,0.15);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .card-icons { font-size: 1.5rem; margin-bottom: 16px; text-align: center; letter-spacing: 6px; }
+
+  .pay-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #2eaa7a, #1e7a56);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .pay-btn:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(46,170,122,0.4); }
+
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #c9b0a8;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--plum); }
+
+  /* ===== SUCCESS ===== */
+  .success-screen {
+    text-align: center;
+    padding: 20px;
+  }
+  .success-screen .big { font-size: 5rem; animation: bounce 0.8s ease infinite alternate; }
+  @keyframes bounce { from { transform: scale(1); } to { transform: scale(1.15); } }
+  .success-screen h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: var(--mint);
+    margin: 14px 0 8px;
+  }
+  .success-screen p { color: var(--muted); font-weight: 600; margin-bottom: 24px; }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #6b2255, #d4a843);
+    color: #fdf8f0;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    z-index: 3000;
+    box-shadow: 0 8px 24px rgba(74,25,66,0.4);
+    transition: transform 0.4s cubic-bezier(.36,1.6,.6,1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: linear-gradient(135deg, #3a1230, #6b2255);
+    color: #f5e6c8;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-top: 2px solid rgba(212,168,67,0.35);
+  }
+  footer .footer-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.3rem;
+    color: #d4a843;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .cart-sidebar { width: 100%; border-radius: 24px 24px 0 0; top: auto; height: 85vh; }
+    .cart-sidebar.open { right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">💍 True <span>Bonds</span></div>
+  <div class="nav-links">
+    <a href="#jewelry">Jewelry</a>
+    <a href="#bracelets">Bracelets</a>
+  </div>
+  <button id="cart-btn" onclick="toggleCart()">
+    🛒 My Cart <div id="cart-count">0</div>
+  </button>
+</nav>
+
+<!-- BANNER -->
+<div class="banner">
+  <span>🌟 FREE SHIPPING on orders over $25!</span>
+  <span>💖 Handcrafted with love</span>
+  <span>✨ Limited Edition pieces!</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="floating-gems">💎 💍 📿 ✨ 💛</div>
+  <h1>Welcome to<br>True Bonds!</h1>
+  <p>🎀 Beautiful jewelry made just for you • Handcrafted with love 🎀</p>
+
+</div>
+
+<!-- JEWELRY SECTION -->
+<div id="jewelry">
+  <div class="section-title">💍 Jewelry Collection</div>
+  <div class="section-subtitle">Sparkly necklaces, rings & earrings just for you!</div>
+  <div class="products-grid" id="jewelry-grid"></div>
+</div>
+
+<!-- BRACELETS SECTION -->
+<div id="bracelets">
+  <div class="section-title">📿 Bracelet Collection</div>
+  <div class="section-subtitle">Stack them up & mix & match your favorites!</div>
+  <div class="products-grid" id="bracelets-grid"></div>
+</div>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h2>🛒 My Cart</h2>
+    <button id="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list">
+    <div class="cart-empty"><div class="big">🛍️</div><br>Your cart is empty!<br>Add some sparkles! ✨</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span class="total-price" id="cart-total-price">$0.00</span>
+    </div>
+    <button id="checkout-btn" onclick="openPayment()">💳 Checkout Now!</button>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payment-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closePayment()">✕</button>
+    <div id="payment-form-view">
+      <div class="modal-title">💳 Checkout!</div>
+      <div class="modal-subtitle">✨ Safe & Secure Payment ✨</div>
+      <div class="card-icons">💳 🔒</div>
+      <div class="form-group">
+        <label>Full Name on Card</label>
+        <input type="text" placeholder="e.g. Emma Johnson" id="card-name">
       </div>
-    </header>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="card-number" oninput="formatCard(this)">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiry Date</label>
+          <input type="text" placeholder="MM/YY" maxlength="5" id="card-exp" oninput="formatExp(this)">
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="text" placeholder="123" maxlength="3" id="card-cvv">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com" id="card-email">
+      </div>
+      <div style="background:#fdf4ff; border-radius:12px; padding:12px 16px; margin-bottom:16px; font-size:0.9rem; color:#b06bbf; font-weight:700; border:1.5px dashed #e0b6f5;">
+        🔒 This is a dummy payment. No real charges will be made!
+      </div>
+      <button class="pay-btn" onclick="processPayment()">💚 Pay <span id="modal-total">$0.00</span></button>
+    </div>
+    <div id="payment-success-view" class="success-screen" style="display:none;">
+      <div class="big">🎉</div>
+      <h2>Order Placed!</h2>
+      <p>Thank you so much! Your sparkly jewelry is on its way! 💖</p>
+      <p style="font-size:0.85rem; color:#c084fc; font-weight:700;">📧 A confirmation has been sent to your email!</p>
+      <button class="pay-btn" onclick="finishOrder()" style="margin-top:10px; background: linear-gradient(135deg,var(--pink),var(--lavender));">🏠 Keep Shopping!</button>
+    </div>
+  </div>
+</div>
 
-    <div class="hero">
-      <img
-        src="images/01-hero.png"
-        alt="True Bonds project cover: pink clouds and stars with title and circular logo"
-        width="1200"
-        height="675"
-      />
-      <div class="hero-caption">
-        <p>Unbreakable bonds, unstoppable team.</p>
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">💍 True Bonds ✨</div>
+  <p>💖 Made with love, just for you!</p>
+  <p style="margin-top:12px; font-size:1rem; font-weight:800; color:#fde68a;">📬 Contact the Owners</p>
+  <p style="margin-top:6px; font-size:0.95rem; font-weight:700; letter-spacing:0.5px;">
+    💎 Vedansha &nbsp;&nbsp;|&nbsp;&nbsp; 🌸 Sanvika
+  </p>
+</footer>
+
+<script>
+// ===== PRODUCT DATA =====
+const jewelry = [
+  { id:1, name:"Rainbow Star Necklace", desc:"Colorful stars on a silver chain", price:12.99, oldPrice:18, emoji:"⭐", badge:"Best Seller" },
+  { id:2, name:"Pink Heart Locket", desc:"Opens to hold a tiny photo!", price:15.99, oldPrice:22, emoji:"💖", badge:"New!" },
+  { id:3, name:"Butterfly Earrings", desc:"Sparkly blue butterfly studs", price:8.99, oldPrice:null, emoji:"🦋", badge:null },
+  { id:4, name:"Moon & Stars Ring", desc:"Gold ring with tiny moon charm", price:9.99, oldPrice:14, emoji:"🌙", badge:"Sale!" },
+  { id:5, name:"Unicorn Pendant", desc:"Magical unicorn on rose gold chain", price:14.99, oldPrice:20, emoji:"🦄", badge:"Magical" },
+  { id:6, name:"Diamond Drop Earrings", desc:"Shimmering crystal drops", price:11.99, oldPrice:null, emoji:"💎", badge:null },
+];
+
+const bracelets = [
+  { id:7, name:"Friendship Bead Bracelet", desc:"Make one for your BFF too!", price:6.99, oldPrice:10, emoji:"📿", badge:"BFF Pick" },
+  { id:8, name:"Rainbow Rubber Band", desc:"Stretchy & fun rainbow colors", price:3.99, oldPrice:null, emoji:"🌈", badge:"Fun!" },
+  { id:9, name:"Gold Charm Bracelet", desc:"5 cute charms included", price:13.99, oldPrice:18, emoji:"🌟", badge:"Popular" },
+  { id:10, name:"Pearl Stretch Bracelet", desc:"Tiny pearls on elastic band", price:7.99, oldPrice:11, emoji:"🤍", badge:null },
+  { id:11, name:"Crystal Tennis Bracelet", desc:"Sparkling crystals all around", price:16.99, oldPrice:24, emoji:"✨", badge:"Luxury" },
+  { id:12, name:"Daisy Chain Bracelet", desc:"Tiny daisies on a delicate chain", price:9.99, oldPrice:null, emoji:"🌼", badge:"Spring" },
+];
+
+// ===== CART STATE =====
+let cart = [];
+
+// ===== RENDER PRODUCTS =====
+function renderProducts(arr, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = arr.map((p, i) => `
+    <div class="product-card" style="animation-delay:${i*0.08}s">
+      <span class="product-emoji">${p.emoji}</span>
+      <div class="product-info">
+        ${p.badge ? `<div class="badge">${p.badge}</div>` : ''}
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-price">
+          ${p.oldPrice ? `<span class="old-price">$${p.oldPrice}</span>` : ''}
+          $${p.price.toFixed(2)}
+        </div>
+        <button class="add-to-cart" onclick="addToCart(${p.id})">🛒 Add to Cart</button>
       </div>
     </div>
+  `).join('');
+}
 
-    <main id="main">
-      <section class="section" aria-labelledby="outline-heading">
-        <h2 id="outline-heading">Table of contents</h2>
-        <p class="lead">
-          Our presentation is organized into seven topics. Jump to any section using the menu
-          above.
-        </p>
-        <figure class="figure">
-          <img
-            src="images/02-toc.png"
-            alt="Table of contents listing: useful, why we are making this, facts, costs, profit, examples, customization"
-            width="1200"
-            height="675"
-          />
-        </figure>
-      </section>
+renderProducts(jewelry, 'jewelry-grid');
+renderProducts(bracelets, 'bracelets-grid');
 
-      <section class="section" id="useful" aria-labelledby="useful-heading">
-        <h2 id="useful-heading">What makes friendship bracelets useful?</h2>
-        <p class="lead">
-          Friendship bracelets are small, but they carry a big message: you matter to me.
-        </p>
-        <div class="two-col">
-          <div>
-            <ul class="list-check">
-              <li>Reminds friends of each other every day</li>
-              <li>Helps friends feel close, even when far apart</li>
-              <li>Makes friends feel special and cared for</li>
-              <li>Shows that a friendship is strong and important</li>
-              <li>Helps friends remember fun times they shared</li>
-              <li>Shows that true friends always stay connected</li>
-            </ul>
-          </div>
-          <figure class="figure">
-            <img
-              src="images/03-useful.png"
-              alt="Slide listing reasons friendship bracelets are useful, with a colorful beaded bracelet illustration"
-              width="1200"
-              height="675"
-            />
-          </figure>
+// ===== CART LOGIC =====
+function addToCart(id) {
+  const product = [...jewelry, ...bracelets].find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ ...product, qty: 1 });
+  updateCart();
+  showToast(`✨ ${product.emoji} ${product.name} added!`);
+}
+
+function updateCart() {
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  document.getElementById('cart-total-price').textContent = `$${total.toFixed(2)}`;
+  document.getElementById('modal-total').textContent = `$${total.toFixed(2)}`;
+  renderCart();
+}
+
+function renderCart() {
+  const el = document.getElementById('cart-items-list');
+  if (!cart.length) {
+    el.innerHTML = '<div class="cart-empty"><div class="big">🛍️</div><br>Your cart is empty!<br>Add some sparkles! ✨</div>';
+    return;
+  }
+  el.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-emoji">${item.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        <div class="cart-qty-controls">
+          <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
         </div>
-      </section>
+      </div>
+      <button class="remove-item" onclick="removeItem(${item.id})">🗑️</button>
+    </div>
+  `).join('');
+}
 
-      <section class="section" aria-labelledby="special-heading">
-        <h2 id="special-heading">What makes friendship bracelets special?</h2>
-        <div class="two-col">
-          <figure class="figure">
-            <img
-              src="images/04-special.png"
-              alt="Slide about uniquely crafted tokens, embroidery floss, and lasting friendships"
-              width="1200"
-              height="675"
-            />
-          </figure>
-          <div>
-            <ul class="list-check">
-              <li>Uniquely crafted tokens of appreciation</li>
-              <li>Carefully crafted from embroidery floss with detailed knotting techniques</li>
-              <li>Symbolize an unbreakable bond between friends</li>
-              <li>Nurtures lasting friendships</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+function removeItem(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
 
-      <section class="section" id="why-making" aria-labelledby="why-making-heading">
-        <h2 id="why-making-heading">Why we are making this</h2>
-        <p class="lead">
-          We are Sanvika and Vedansha. For our school project we wanted to share something
-          positive: handmade jewelry that celebrates friendship. We learned how to plan costs,
-          think about profit, compare ideas to other brands, and explain why our bracelets matter.
-          True Bonds is our way of spreading kindness—one bracelet at a time.
-        </p>
-      </section>
+// ===== CART TOGGLE =====
+function toggleCart() {
+  document.getElementById('cart-sidebar').classList.toggle('open');
+  document.getElementById('cart-overlay').classList.toggle('open');
+}
 
-      <section class="section" id="facts" aria-labelledby="facts-heading">
-        <h2 id="facts-heading">Facts</h2>
-        <figure class="figure">
-          <img
-            src="images/07-facts.png"
-            alt="Facts slide: you can customize jewelry by size, color, worth, and design"
-            width="1200"
-            height="675"
-          />
-        </figure>
-        <p class="lead" style="margin-top: 20px">
-          You can customize your jewelry however you want depending on size, color, worth, and
-          design.
-        </p>
-      </section>
+// ===== PAYMENT =====
+function openPayment() {
+  if (!cart.length) { showToast("🛒 Your cart is empty!"); return; }
+  document.getElementById('payment-form-view').style.display = 'block';
+  document.getElementById('payment-success-view').style.display = 'none';
+  document.getElementById('payment-modal').classList.add('open');
+  toggleCart();
+}
+function closePayment() {
+  document.getElementById('payment-modal').classList.remove('open');
+}
+function processPayment() {
+  document.getElementById('payment-form-view').style.display = 'none';
+  document.getElementById('payment-success-view').style.display = 'block';
+}
+function finishOrder() {
+  cart = [];
+  updateCart();
+  closePayment();
+  showToast("🎉 Thanks for shopping at True Bonds!");
+}
 
-      <section class="section" id="costs" aria-labelledby="costs-heading">
-        <h2 id="costs-heading">Costs</h2>
-        <figure class="figure">
-          <img
-            src="images/05-costs.png"
-            alt="Costs table: beads twelve dollars, wires two dollars, charms seven dollars, with photo of heart beads"
-            width="1200"
-            height="675"
-          />
-        </figure>
-      </section>
+// ===== CARD FORMATTERS =====
+function formatCard(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,16);
+  el.value = v.match(/.{1,4}/g)?.join(' ') || v;
+}
+function formatExp(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,4);
+  if (v.length >= 3) v = v.substring(0,2) + '/' + v.substring(2);
+  el.value = v;
+}
 
-      <section class="section" id="profit" aria-labelledby="profit-heading">
-        <h2 id="profit-heading">Profit</h2>
-        <figure class="figure">
-          <img
-            src="images/06-profit.png"
-            alt="Profit slide with cost breakdown per bracelet, selling price, and example profit for thirty bracelets"
-            width="1200"
-            height="675"
-          />
-        </figure>
-      </section>
-
-      <section class="section" id="examples" aria-labelledby="examples-heading">
-        <h2 id="examples-heading">Examples</h2>
-        <p class="lead">
-          Here are a few styles customers might pick—each one can be made in your favorite colors.
-        </p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Rainbow cheer</h3>
-            <p>Bright beads in a row so every day feels sunny.</p>
-          </div>
-          <div class="card">
-            <h3>Initials</h3>
-            <p>Letter beads with you and your bestie’s initials.</p>
-          </div>
-          <div class="card">
-            <h3>Besties</h3>
-            <p>A charm or word that celebrates your friendship.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="customization" aria-labelledby="customization-heading">
-        <h2 id="customization-heading">Customization</h2>
-        <figure class="figure">
-          <img
-            src="images/08-customization.png"
-            alt="Customization slide: choose how your bracelet looks; friends can design matching jewelry together"
-            width="1200"
-            height="675"
-          />
-        </figure>
-        <p class="lead" style="margin-top: 20px">
-          You can customize your bracelet however you want it to look, and you can get one of
-          your friends to customize both of your friendship jewelry.
-        </p>
-      </section>
-
-      <section class="section" id="why-us" aria-labelledby="why-us-heading">
-        <h2 id="why-us-heading">Our competitors &amp; why choose us</h2>
-        <p class="lead">
-          Little Words Project, BaubleBar, and Love Is Project are popular brands. Here is how we
-          compare—and why True Bonds is different.
-        </p>
-        <figure class="figure banner">
-          <img
-            src="images/09-why-us.png"
-            alt="Slide: our competitors on the left with logos, and why choose us on the right"
-            width="1200"
-            height="675"
-          />
-        </figure>
-      </section>
-
-      <section class="section" id="qa" aria-labelledby="qa-heading">
-        <h2 id="qa-heading">Questions &amp; answers</h2>
-        <figure class="figure banner">
-          <img
-            src="images/10-qa.png"
-            alt="Decorative Q and A title art with bracelet graphics"
-            width="1200"
-            height="675"
-          />
-        </figure>
-        <p class="lead" style="margin-top: 20px">
-          Have a question about colors, sizes, or how to order? Ask Sanvika or Vedansha at school,
-          or email through a parent—we will do our best to reply.
-        </p>
-      </section>
-
-      <section class="section" id="order" aria-labelledby="order-heading">
-        <h2 id="order-heading">Ready to order?</h2>
-        <figure class="figure banner">
-          <img
-            src="images/11-cta.png"
-            alt="Hope you liked our presentation, are you ready to place your order"
-            width="1200"
-            height="675"
-          />
-        </figure>
-        <p class="cta-quote" style="margin-top: 20px">
-          Hope you liked our presentation!!! Are you ready to place your order?
-        </p>
-      </section>
-
-      <section class="section thanks-wrap" aria-labelledby="thanks-heading">
-        <h2 id="thanks-heading">Thank you</h2>
-        <img
-          src="images/12-thanks.png"
-          alt="Thank you slide with clouds, stars, and cute characters"
-          width="1200"
-          height="675"
-        />
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        <strong>True Bonds</strong> — by Sanvika and Vedansha · School project website · All
-        rights reserved © <span id="y"></span>
-      </p>
-    </footer>
-
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-      var btn = document.querySelector(".nav-toggle");
-      var nav = document.getElementById("site-nav");
-      if (btn && nav) {
-        btn.addEventListener("click", function () {
-          var open = nav.classList.toggle("is-open");
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-      }
-    </script>
-  </body>
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
 </html>
